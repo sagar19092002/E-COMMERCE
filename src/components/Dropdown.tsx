@@ -1,18 +1,23 @@
-import React,{FC} from 'react'
+import { FC } from "react";
 
-interface DropdownProps{
-  options:string[];
+interface DropdownProps {
+  options: string[];
+  className?:string;
 }
 
-export const Dropdown:FC<DropdownProps>=({options})=> {
+export const Dropdown: FC<DropdownProps> = ({ options,className }) => {
   return (
-    <div>
+    <div className={`${className}`}>
       <select>
-        {options.map((item,index)=>(
-          <div key={index}>{item}</div>
+        <option value="" disabled selected hidden>
+          Please Choose...
+        </option>
+        {options.map((item, index) => (
+          <option value={item} key={index}>
+            {item}
+          </option>
         ))}
-    </select>
+      </select>
     </div>
-  )
-}
-
+  );
+};

@@ -3,11 +3,12 @@ import React, { FC } from 'react';
 interface StepsProps {
   steps: string[];
   currentStatus?: string;
+  className?:string;
 }
 
-const Steps: FC<StepsProps> = ({ steps, currentStatus }) => {
+export const Steps: FC<StepsProps> = ({ steps, currentStatus ,className}) => {
   return (
-    <div className="relative flex items-center">
+    <div className={`relative flex items-center ${className}`}>
       {steps.map((step, index) => {
         const isActive = step === currentStatus;
         return (
@@ -25,4 +26,3 @@ const Steps: FC<StepsProps> = ({ steps, currentStatus }) => {
   );
 };
 
-export default Steps;

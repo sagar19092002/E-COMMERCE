@@ -3,59 +3,26 @@ import React, { useState, FC } from "react";
 import { validateEmail, validatePassword } from "../utils/helper";
 import { EMAIL, PASSWORD, NUMERIC } from "../utils/constants";
 
-interface InputProps
-  extends React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > {
+interface InputProps {
   className?: string;
   placeholder: string | undefined;
   type: string;
   errorMsg?: string;
   state?: string;
   validator?: (value: string) => boolean;
-  onChange?: () => {};
+  onChange?: (value: string) => void;
 }
-const getErrorMsg = {
+
+const getErrorMsg: any = {
   [EMAIL]: "Invalid Email",
   [PASSWORD]: "Invalid Password",
   [NUMERIC]: "Invalid",
 };
 
-const getValidation = {
-  [EMAIL]: ({
-    validator,
-    value,
-  }: {
-    validator: (value: string) => boolean;
-    value: string;
-  }) => {
-    return validator(value);
-  },
-  [PASSWORD]: ({
-    validator,
-    value,
-  }: {
-    validator: (value: string) => boolean;
-    value: string;
-  }) => {
-    return validator(value);
-  },
-  [NUMERIC]: ({
-    validator,
-    value,
-  }: {
-    validator: (value: string) => boolean;
-    value: string;
-  }) => {
-    return validator(value);
-  },
-};
-
-const getValidator = {
+const getValidator: any = {
   [EMAIL]: validateEmail,
   [PASSWORD]: validatePassword,
-  [NUMERIC]: !isNaN,
+  [NUMERIC]: (value: string) => !isNaN(Number(value)),
 };
 
 export const Input: FC<InputProps> = ({
@@ -64,6 +31,7 @@ export const Input: FC<InputProps> = ({
   state,
   placeholder,
   errorMsg,
+  validator,
   onChange,
 }) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -73,6 +41,17 @@ export const Input: FC<InputProps> = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setValue(value);
+
+    const validationFunc = validator || getValidator[type];
+    if (validationFunc) {
+      const isValid = validationFunc(value);
+      setIsValid(isValid);
+      setErrorMessage(isValid ? null : errorMsg || getErrorMsg[type]);
+    }
+
+    if (onChange) {
+      onChange(value);
+    }
   };
 
   return (
@@ -82,7 +61,7 @@ export const Input: FC<InputProps> = ({
         type={type}
         value={value}
         onChange={handleChange}
-        className={`w-[100%] h-[21px] ${className}`}
+        className={`w-[100%] h-[21px] border-[1px] border-[black] ${className}`}
       />
       {errorMessage && <div className="text-red-600">{errorMessage}</div>}
     </div>

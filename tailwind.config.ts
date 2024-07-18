@@ -14,15 +14,15 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        primary:'Public Sans, sans-serif'
+        primary: "Public Sans, sans-serif",
       },
       colors: {
-        "white": '#ffffff'
-      }
-  
+        white: "#ffffff",
+        primary: "#FFFFFF",
+        // "secondary":''
+      },
     },
   },
   plugins: [],
-
 };
 export default config;

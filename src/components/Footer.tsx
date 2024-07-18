@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
-import Input from './Input'; // Ensure the path is correct based on your project structure
+import {Input} from './Input'; 
 
 interface FooterProps {
   title: string;

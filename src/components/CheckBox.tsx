@@ -5,7 +5,7 @@ interface CheckBoxProps{
   className?:string;
 }
 
-const CheckBox:FC<CheckBoxProps> = ({ label,className }) => {
+export const CheckBox:FC<CheckBoxProps> = ({ label,className }) => {
   return (
     <div className="">
       <label className={`flex gap-x-1 ${className}`}>
@@ -16,4 +16,3 @@ const CheckBox:FC<CheckBoxProps> = ({ label,className }) => {
   );
 };
 
-export default CheckBox;

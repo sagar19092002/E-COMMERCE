@@ -9,9 +9,9 @@ interface ProductProps{
     className?:string;
 }
 
-export const Product:FC<ProductProps> = ({image,productName,price,size}) => {
+export const Product:FC<ProductProps> = ({image,productName,price,size,className}) => {
   return (
-    <div className='flex flex-col w-full h-28'>
+    <div className={`flex flex-col w-full h-28 ${className}`}>
       <Image src={image} alt="Error"/>
       <div className='flex gap-x-60'>
         <div>{productName}</div>

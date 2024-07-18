@@ -1,4 +1,4 @@
-import React,{FC} from 'react';
+import { FC } from 'react';
 import Navbar from '../components/NavBar';
 import Input from '../components/Input';
 import Button from '../components/Button';
@@ -8,7 +8,7 @@ interface ForgotPasswordProps{
     buttonName:string;
 }
 
-const ForgotPassword:FC<ForgotPasswordProps>=({description,buttonName})=>{
+const forgotPassword:FC<ForgotPasswordProps>=({description,buttonName})=>{
     return(
         <div className='h-full w-full '>
         <Navbar/>
@@ -24,4 +24,4 @@ const ForgotPassword:FC<ForgotPasswordProps>=({description,buttonName})=>{
     )
 }
 
-export default ForgotPassword;
+export default forgotPassword;

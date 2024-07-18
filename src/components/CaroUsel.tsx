@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
-import car from '../../public/RightSide.svg';
+import car from "../../public/RightSide.svg";
 interface CarouselProps {
   images: StaticImageData[];
+  className?: string;
+  imageindex?: any;
 }
-export const Carousel: React.FC<CarouselProps> = ({ images }) => {
-  const [imageIndex, setImageIndex] = useState(0);
+export const Carousel: React.FC<CarouselProps> = ({
+  images,
+  className,
+  imageindex,
+}) => {
+  const [imageIndex, setImageIndex] = useState(imageindex || 0);
   const handleNextImage = () => {
     if (imageIndex < images.length - 1) {
       setImageIndex(imageIndex + 1);
@@ -17,7 +23,9 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
     }
   };
   return (
-    <div className="relative w-[556px] h-[549px] overflow-hidden">
+    <div
+      className={`relative w-[556px] h-[549px] overflow-hidden ${className}`}
+    >
       <Image
         src={images[imageIndex]}
         alt={`Image ${imageIndex + 1}`}
@@ -25,14 +33,14 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
         objectFit="center"
         className="absolute h-40"
       />
-      {imageIndex > 0 && 
+      {imageIndex > 0 && (
         <button
           onClick={handlePrevImage}
           className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-full"
         >
           <Image src={car} alt={"Not found"} className="h-10 w-10 rotate-180" />
         </button>
-      }
+      )}
       {imageIndex < images.length - 1 && (
         <button
           onClick={handleNextImage}
@@ -44,9 +52,3 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
     </div>
   );
 };
-
-
-
-
-
-

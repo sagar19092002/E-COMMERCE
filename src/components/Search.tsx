@@ -2,7 +2,7 @@ import { StaticImageData } from "next/image";
 import React, { FC } from "react";
 import Image from "next/image";
 import { Input } from "./Input";
-import SearchImg from '../../public/Search (1).svg';
+import SearchImg from "../../public/Search (1).svg";
 
 interface SearchProps {
   className?: string;
@@ -16,7 +16,7 @@ interface SearchProps {
   src?: string | StaticImageData;
 }
 
-const Search: FC<SearchProps> = ({
+export const Search: FC<SearchProps> = ({
   imageClassName,
   inputClassName,
   className,
@@ -28,7 +28,7 @@ const Search: FC<SearchProps> = ({
 }) => {
   return (
     <div
-      className={`ml-[32px] mr-[553px] mt-[18px] mb-[21px] w-[81px] h-[21px] flex ${className}`}
+      className={`ml-[32px] mr-[553px] mt-[18px] mb-[21px] w-[81px] h-[21px] flex items-center space-x-[10px] ${className}`}
     >
       <Image
         className={`w-[15.85px] h-[16px] mt-[3px] mb-[5px] bg-black ${imageClassName}`}
@@ -43,6 +43,3 @@ const Search: FC<SearchProps> = ({
     </div>
   );
 };
-
-export default Search;
-

@@ -5,25 +5,27 @@ interface QuantityProps {
   min?: number;
   max?: number;
   onChange?: (quantity: number) => void;
+  className?:string;
 }
 
 export const Quantity: React.FC<QuantityProps> = ({
   min = 1,
   max = 100,
   onChange,
+  className
 }) => {
   const [quantity, setQuantity] = useState(0);
 
   const handleIncrement = () => {
     if (quantity < max) {
-      setQuantity(quantity+1);
+      setQuantity(quantity + 1);
       if (onChange) onChange(quantity);
     }
   };
 
   const handleDecrement = () => {
     if (quantity > min) {
-      setQuantity(quantity-1);
+      setQuantity(quantity - 1);
       if (onChange) onChange(quantity);
     }
   };
@@ -32,19 +34,17 @@ export const Quantity: React.FC<QuantityProps> = ({
     const value = parseInt(event.target.value, 10);
     if (!isNaN(value) && value >= min && value <= max) {
       setQuantity(value);
-      if (onChange) {onChange(value)};
+      if (onChange) {
+        onChange(value);
+      }
     }
   };
 
   return (
-    <div className="flex w-20 items-center">
-      <button
-        onClick={handleDecrement}
-        className="bg-gray-200 text-gray-700 w-10 rounded-l"
-        disabled={quantity <= min}
-      >
+    <div className={`flex w-20 items-center justify-center border-[1px] border-[black] px-4 py-2 ${className}`}>
+      <div onClick={handleDecrement} className=" text-gray-700 cursor-pointer">
         -
-      </button>
+      </div>
       <input
         type="string"
         value={quantity}
@@ -53,14 +53,9 @@ export const Quantity: React.FC<QuantityProps> = ({
         min={min}
         max={max}
       />
-      <button
-        onClick={handleIncrement}
-        className="bg-gray-200 text-gray-700 w-10 rounded-r"
-        disabled={quantity >= max}
-      >
+      <div onClick={handleIncrement} className=" text-gray-700 cursor-pointer">
         +
-      </button>
+      </div>
     </div>
   );
 };
-
