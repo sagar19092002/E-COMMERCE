@@ -28,7 +28,12 @@ const LoginPage: FC = (): JSX.Element => {
             </Link>
           </div>
         </div>
-        <Button buttonClassName="flex flex-row justify-center mt-[21px] !w-[25%] p-2" buttonName="Login" />
+        <div className="w-full flex justify-center">
+          <Button
+            buttonClassName="flex flex-row justify-center mt-[21px] !w-[25%] p-2"
+            buttonName="Login"
+          />
+        </div>
       </div>
     </div>
   );

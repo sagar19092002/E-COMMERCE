@@ -8,6 +8,9 @@ import sample3 from "../../public/image copy 3.png";
 import sample4 from "../../public/image copy 4.png";
 
 import { Carousel } from "@/components/CaroUsel";
+import LoginPage from "./LoginPage";
+import RegistrationPage from "./RegistrationPage";
+import EcommerceScreen from "./EcommerceScreen";
 
 const Home: FC = (): JSX.Element => {
   const colors = ["red", "green", "blue", "gray", "yellow"];
@@ -28,7 +31,8 @@ const Home: FC = (): JSX.Element => {
   const userName = "Ryan M";
   const className = "";
   const rating = 5;
-
+   const ecommercedes="Create Screens directly in Method or Add your images from Sketch or Figma.You can even Sync designs from your cloud storage!";
+  const EbuttonName="Shop All"
   const [isToggled, setIsToggled] = useState(false);
 
   const handleToggle = () => {
@@ -47,7 +51,11 @@ const Home: FC = (): JSX.Element => {
     // />
     // <Cart src={sample1} productName="Men's Jacket" size="L" quantity="2" price="22" className="p-1" />
     // <HomePage/>
-    <Carousel images={images} imageindex={2} />
+   
+    <>
+      {/* <LoginPage /> */}
+      <EcommerceScreen title="Better Clothing for the Planet" description={ecommercedes} buttonName={EbuttonName}  />
+    </>
   );
 };
 

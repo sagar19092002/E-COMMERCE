@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const pathName = usePathname();
   return (
-    <div className="h-[100vh] bg-[#EFF2F6]">
+    <div className="h-full bg-[#EFF2F6]">
       <NavBar />
       <Component {...pageProps} />
     </div>

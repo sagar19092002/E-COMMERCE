@@ -15,24 +15,46 @@ interface RegistrationPageProps{
 
 const RegistrationPage = () => {
   return (
-    <div className='w-full h-full'>
-      <NavBar/>
-      <div className='w-full h-[92%] flex justify-center items-center '>
-        <div className='flex-col w-[456px] h-[376px]'>
-          <div className='w-[133px] h-[26px] ml-[30.46px] font-sans font-medium text-base'>create an account</div>
-            <Input className="w-[398px] h-[40px] mt-[16px] ml-[30.46px]" type="text" placeholder="Name"/>
-            <Input className="w-[398px] h-[40px] mt-[14px] ml-[30.46px]" type="email" placeholder="Email"/>
-            <Input className="w-[398px] h-[40px] mt-[14px] ml-[30.46px]" type="password" placeholder="Password"/>
-            <Input className="w-[398px] h-[40px] mt-[14px] ml-[30.46px]" type="password" placeholder="Confirm Password"/>
-            <div className="flex w-[398px] h-[40px]  ml-[30.46px]">
-            <CheckBox label="Remember me"/>
-            <Link className='ml-[133px] w-[115px] h-[16px] font-bold' href=''>Forgot Password?</Link>
-            </div>
-            <Button className="w-[95px] h-[31px] mt-[21px] ml-[182px]" buttonName="Sign Up" />
+    <div className="w-full h-full flex justify-center items-center">
+      <div className="flex-col w-[25%] p-4 bg-white">
+        <div className="font-sans font-medium text-base text-[16px] ">
+          create an account
+        </div>
+        <Input
+          className=" mt-[16px] p-4 text-[14px]"
+          type="text"
+          placeholder="Name"
+        />
+        <Input
+          className=" mt-[14px] p-4 text-[14px]"
+          type="email"
+          placeholder="Email"
+        />
+        <Input
+          className=" mt-[14px] p-4 text-[14px]"
+          type="password"
+          placeholder="Password"
+        />
+        <Input
+          className=" mt-[14px] p-4 text-[14px]"
+          type="password"
+          placeholder="Confirm Password"
+        />
+        <div className="flex justify-between">
+          <CheckBox label="Remember me" />
+          <Link className="font-bold" href="">
+            Forgot Password?
+          </Link>
+        </div>
+        <div className="w-full flex justify-center">
+          <Button
+            buttonClassName="flex flex-row justify-center mt-[21px] !w-[25%] p-2"
+            buttonName="Sign up"
+          />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default RegistrationPage;
