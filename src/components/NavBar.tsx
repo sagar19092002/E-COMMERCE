@@ -29,7 +29,7 @@ export const NavBar: FC<NavbarProps> = ({ className }) => {
   ];
   return (
     <div
-      className={`flex items-center justify-between w-full bg-black h-[8%] fixed ${className}`}
+      className={`flex items-center justify-between w-full bg-black h-[8%] fixed top-0 border-[gray] border-[1px] ${className}`}
     >
       <div className="flex space-x-8 ml-[145px] items-center justify-center h-full text-[17px]">
         {navItems.map((item, index) => {
@@ -39,18 +39,6 @@ export const NavBar: FC<NavbarProps> = ({ className }) => {
             </Link>
           );
         })}
-        {/* <Link href="/e-commerce" className="text-white hover:bg-gray-700">
-          E-Commerce
-        </Link>
-        <Link href="/ForgotPassword" className="text-white hover:bg-gray-700">
-          Shop
-        </Link>
-        <Link href="/stories" className="text-white hover:bg-gray-700">
-          Stories
-        </Link>
-        <Link href="/about" className="text-white hover:bg-gray-700">
-          About
-        </Link> */}
         <Search className="bg-black text-white" placeholder="Search" />
       </div>
       <div className="flex text-[17px]">

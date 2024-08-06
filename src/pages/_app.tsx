@@ -8,9 +8,11 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const pathName = usePathname();
   return (
-    <div className="h-full bg-[#EFF2F6]">
-      <NavBar />
-      <Component {...pageProps} />
+    <div className="">
+      {/* <NavBar /> */}
+      <div className="pt-15">
+        <Component {...pageProps} />
+      </div>
     </div>
   );
 }

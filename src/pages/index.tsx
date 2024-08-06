@@ -6,11 +6,12 @@ import sample1 from "../../public/image copy.png";
 import sample2 from "../../public/image copy 2.png";
 import sample3 from "../../public/image copy 3.png";
 import sample4 from "../../public/image copy 4.png";
-
-import { Carousel } from "@/components/CaroUsel";
 import LoginPage from "./LoginPage";
-import RegistrationPage from "./RegistrationPage";
-import EcommerceScreen from "./EcommerceScreen";
+import ShopPage from "./ShopPage";
+import { ColorPicker } from "@/components/ColorPicker";
+import Product01 from './Product01/index';
+
+
 
 const Home: FC = (): JSX.Element => {
   const colors = ["red", "green", "blue", "gray", "yellow"];
@@ -35,27 +36,9 @@ const Home: FC = (): JSX.Element => {
   const EbuttonName="Shop All"
   const [isToggled, setIsToggled] = useState(false);
 
-  const handleToggle = () => {
-    setIsToggled(!isToggled);
-  };
-
   return (
-    // <ProductReviews
-    //   date={date}
-    //   description={description}
-    //   feedBack={feedBack}
-    //   userName={userName}
-    //   className={className}
-    //   rating={rating}
-    //   title={title}
-    // />
-    // <Cart src={sample1} productName="Men's Jacket" size="L" quantity="2" price="22" className="p-1" />
-    // <HomePage/>
-   
-    <>
-      {/* <LoginPage /> */}
-      <EcommerceScreen title="Better Clothing for the Planet" description={ecommercedes} buttonName={EbuttonName}  />
-    </>
+    // <LoginPage/>
+    <Product01/>
   );
 };
 

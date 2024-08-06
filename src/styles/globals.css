@@ -3,6 +3,10 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+.html,body{
+  background-color: bg-#EFF2F6;
+}
+
 li {
     float: left;
 }
