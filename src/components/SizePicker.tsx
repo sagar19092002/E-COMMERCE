@@ -3,34 +3,43 @@ import { FC, useState } from "react";
 interface SizeProps {
   className?: string;
   sizes?: string[];
-  onSizeSelect?: () => void;
+  onSizeSelect?: (size: string) => void;
 }
 
 export const SizePicker: FC<SizeProps> = ({
-  className,
-  sizes,
+  className = "",
+  sizes = [],
+  onSizeSelect,
 }) => {
   const [selectedSize, setSelectedSize] = useState("");
 
-  const onSizeSelect = (size: string) => {
+  const handleSizeSelect = (size: string) => {
     setSelectedSize(size);
+    if (onSizeSelect) {
+      onSizeSelect(size);
+    }
   };
 
   return (
-    <div className={`${className}`}>
-      {sizes?.map((size: any, index: any) => (
-        <button
-          key={index}
-          className={
-            selectedSize === size
-              ? "bg-[black] text-[white] w-10 h-10 border border-black cursor-pointer m-1.5"
-              : ""
-          }
-          onClick={() => onSizeSelect(size)}
-        >
-          {size}
-        </button>
-      ))}
+    <div>
+      <div className="font-normal text-[18px] m-1.5 text-[#000000] opacity-50">
+        Size
+      </div>
+      <div className={`${!className ? "flex gap-3 mt-[11px]" : className}`}>
+        {sizes.map((size, index) => (
+          <div
+            key={index}
+            className={`w-[50px] h-[50px] border-[1px] cursor-pointer m-1.5 flex items-center justify-center ${
+              selectedSize === size
+                ? "border-[black] bg-[white] text-[black]"
+                : "border-gray-300"
+            }`}
+            onClick={() => handleSizeSelect(size)}
+          >
+            {size}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

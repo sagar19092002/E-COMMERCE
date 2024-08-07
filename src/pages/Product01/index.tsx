@@ -24,14 +24,14 @@ interface ProductScreenProps {
 }
 
 const ProductScreen = () => {
-  const colors = ["green","blue","black","yellow","red","gray"];
+  const colors = ["green", "blue", "black", "yellow", "red", "gray"];
   const images = [sample1, sample2, sample3, sample4];
   const sizes = ["L", "M", "XL", "XXL"];
 
   return (
     <div className="w-[100vw] h-[100vh] flex flex-row gap-20 items-center justify-center p-20">
-      <MultipleProducts images={images} />
-      <div>
+      <MultipleProducts className="w-[40%]" images={images} />
+      <div className="w-[40%]">
         <div className="flex flex-row gap-5 items-center">
           <div className="font-semibold text-[36px]">Men's winter Jacket</div>
           <Image
@@ -52,27 +52,28 @@ const ProductScreen = () => {
           achieve a perfectly curated wardrobe thanks to our line-up of timeless
           pieces.
         </div>
-        <ColorPicker className='gap-3' colors={colors}/>
-        <SizePicker sizes={sizes} />
-        <Link className="font-normal text-[13px] mt-[27px]" href="#">
+        <div className="max-w-48">
+          <ColorPicker className="gap-3" colors={colors} />
+        </div>
+        <SizePicker className="flex gap-1" sizes={sizes} />
+        <Link className="font-normal text-[13px] mt-[27px] underline" href="#">
           Size and Fit Guide
         </Link>
-        <div className="font-normal text-[14px] mt-[12px]">
+        <div className="font-normal text-[14px] mt-[12px] opacity-50">
           Height of model:189cm./6.2" size 41
         </div>
         <div className="flex justify-center  mt-[18px] gap-3">
           <div className="flex flex-col w-full justify-end">
             <Button
-              buttonClassName="h-[30px]"
+              buttonClassName="h-full"
               buttonName={`Add to Cart-${PRICE}${"295"}`}
             />
           </div>
-
           <Quantity />
         </div>
         <div className="flex flex-row gap-5 mt-[12px]">
-          <div className="font-normal text-[14px]">Free standard shipping</div>
-          <Link className="font-normal text-[14px]" href="#">
+          <div className="font-normal text-[14px] opacity-50">Free standard shipping</div>
+          <Link className="font-normal text-[14px] opacity-50 underline" href="#">
             Free Returns
           </Link>
         </div>

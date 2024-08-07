@@ -1,8 +1,7 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { CheckBox } from "@/components/CheckBox";
 import { Button } from "@/components/Button";
 import { Search } from "@/components/Search";
-import Link from "next/link";
 import { SingleProduct } from "@/components/SingleProduct";
 
 import { PRICE } from "../utils/constants";

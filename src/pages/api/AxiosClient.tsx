@@ -8,7 +8,8 @@ interface IApi {
 }
 
 export const getApi = async ({ endUrl, params }: IApi) => {
-  const accessToken = localStorage.getItem("accessToken");
+  const accessTokenData=localStorage.getItem("accessToken")
+  const accessToken=JSON.parse(accessTokenData || "");
   try {
     const response = await axios({
       method: "get",

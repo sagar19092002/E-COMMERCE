@@ -100,3 +100,8 @@ li a:hover {
     color: gray; /* Change this to your desired color */
     opacity: 1; /* This is important to ensure the color is not faded */
   }
+
+  .fixed-size{
+    width:265px;
+    height:265px;
+  }

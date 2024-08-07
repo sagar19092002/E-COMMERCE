@@ -21,13 +21,19 @@ const LoginPage: FC = (): JSX.Element => {
         body: { email, password },
       });
       if (response.status === true) {
-        localStorage.setItem("response", response);
+        const {full_name,email:userEmail,role} = response?.data
+        const {accessToken}=response?.data;
+        const {refreshToken}=response?.data;
+        localStorage.setItem('userData',JSON.stringify({full_name,userEmail,role}))
+        localStorage.setItem('accessToken',JSON.stringify(accessToken));
+        localStorage.setItem("refreshToken",JSON.stringify(refreshToken))
+        
         router.push({ pathname: "/EcommerceScreen" });
       } else {
         toast(response?.response?.data?.message);
       }
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   };
 
@@ -39,7 +45,7 @@ const LoginPage: FC = (): JSX.Element => {
         </div>
         <div className="w-[120px] h-[26px] text-[16px] text-gray-500">
           Login with email
-        </div>
+        </div >
         <Input
           className="mt-[14px] p-4"
           type="email"

@@ -10,7 +10,9 @@ import LoginPage from "./LoginPage";
 import ShopPage from "./ShopPage";
 import { ColorPicker } from "@/components/ColorPicker";
 import Product01 from './Product01/index';
-
+import { SizePicker } from "@/components/SizePicker";
+import Product02 from './Product02/index';
+import { Address } from "../components/Address";
 
 
 const Home: FC = (): JSX.Element => {
@@ -38,7 +40,8 @@ const Home: FC = (): JSX.Element => {
 
   return (
     // <LoginPage/>
-    <Product01/>
+    // <Product02/>
+    <Address/>
   );
 };
 

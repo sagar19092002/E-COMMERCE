@@ -1,24 +1,23 @@
-import Image,{ StaticImageData } from 'next/image';
-import React,{FC} from 'react';
-import SampleImg from '../../public/image copy.png';
+import Image from 'next/image';
+import { FC } from 'react';
 import { PRICE } from '@/utils/constants';
 
 interface ShopItemProps{
-    src?:StaticImageData;
+    src?:string;
     productName?:string;
     size?:string;
-    price?:string;
+    price?:number;
 }
 
 export const ShopItem:FC<ShopItemProps> = ({src,productName,size,price}) => {
   return (
     <div className='flex flex-col'>
-      <Image src={SampleImg} alt="Error"/>
+      <Image className='fixed-size' width={265} height={265} src={src || ""} alt="Error"/>
       <div className='flex justify-between'>
-        <div>Men's Winter Jacket</div>
-        <div>M</div>
+        <div>{productName}</div>
+        <div>{size}</div>
       </div>
-      <div>{PRICE}22</div>
+      <div>{PRICE}{price}</div>
     </div>
   )
 }

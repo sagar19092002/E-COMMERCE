@@ -15,7 +15,7 @@ export const MultipleProducts: FC<ProductProps> = ({ className, images }) => {
   };
 
   return (
-    <div className={`grid grid-cols-2 ${className}`}>
+    <div className={`grid grid-cols-2 gap-3 ${className}`}>
       {handleImages()}
     </div>
   );
